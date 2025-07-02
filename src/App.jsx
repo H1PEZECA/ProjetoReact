@@ -1,5 +1,5 @@
 import { useState } from "react";
-//import AddTasks from "./components/AddTasks";
+import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
 function App() {
   const [tasks, setTasks] = useState([
@@ -36,12 +36,17 @@ function App() {
     setTasks(newTasks);
   }
 
+  function onDeleteTask(TaskId) { 
+    const newTasks = tasks.filter(task => task.id !== TaskId);
+    setTasks(newTasks);
+  }
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div>
+      <div className="w[600px]">
         <h1 className="text-3xl font-bold">Tasks Manager</h1>
-        
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} />
+        <AddTasks />
+        <Tasks tasks={tasks} onTaskClick={onTaskClick} onDeleteTask={onDeleteTask} />
       </div>
     </div>
   );
