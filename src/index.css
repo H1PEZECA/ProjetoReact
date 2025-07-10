@@ -14,6 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background-color: #64748b; /* Tailwind bg-slate-500 */
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,10 +29,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #64748b; /* Tailwind bg-slate-500 */
 }
 
 h1 {
@@ -58,7 +61,11 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    /* background-color: #ffffff; Removido para manter o fundo consistente */
+  }
+  html,
+  body {
+    background-color: #64748b !important; /* Garante o fundo sempre igual */
   }
   a:hover {
     color: #747bff;
